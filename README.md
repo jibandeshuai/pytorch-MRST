@@ -1,2 +1,3 @@
-# pytorch-d2l-mrst
-MRST-model
+# pytorch-MRST
+
+Just the MRST-model
