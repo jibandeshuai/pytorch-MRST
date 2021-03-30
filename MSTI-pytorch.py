@@ -77,6 +77,23 @@ class MSTI(nn.Module):
             self.bn_t_i = nn.BatchNorm3d(out_channels // 16)
             self.bn_s += [self.bn_s_i]
             self.bn_t += [self.bn_t_i]
+        for i in range(4):
+            self.conv_s[i] = self.conv_s[i].cuda()
+            self.conv_t[i] = self.conv_t[i].cuda()
+            self.conv_ss[i] = self.conv_ss[i].cuda()
+            self.conv_st[i] = self.conv_st[i].cuda()
+            self.conv_ts[i] = self.conv_ts[i].cuda()
+            self.conv_tt[i] = self.conv_tt[i].cuda()
+            self.fc_s[i] = self.fc_s[i].cuda()
+            self.fc_t[i] = self.fc_t[i].cuda()
+            self.bn_s[i] = self.bn_s[i].cuda()
+            self.bn_t[i] = self.bn_t[i].cuda()
+
+        for i in range(3):
+            self.conv_ss1[i] = self.conv_ss1[i].cuda()
+            self.conv_tt1[i] = self.conv_tt1[i].cuda()
+
+
 
     def forward(self, X, ):
         X_ = F.relu(self.bottleneck_1(X))
