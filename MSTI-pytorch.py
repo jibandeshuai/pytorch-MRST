@@ -73,8 +73,8 @@ class MSTI(nn.Module):
             self.conv_x = None
         self.bn_s, self.bn_t = [], []
         for i in range(4):
-            self.bn_s_i = nn.BatchNorm3d(out_channels // 16)
-            self.bn_t_i = nn.BatchNorm3d(out_channels // 16)
+            self.bn_s_i = nn.BatchNorm3d(out_channels // 4)
+            self.bn_t_i = nn.BatchNorm3d(out_channels // 4)
             self.bn_s += [self.bn_s_i]
             self.bn_t += [self.bn_t_i]
         for i in range(4):
