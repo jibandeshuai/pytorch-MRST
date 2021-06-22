@@ -83,7 +83,25 @@ class CFST(nn.Module):
             self.bn_t1 +=[self.bn_t1_i]
             self.bn_s2 += [self.bn_s2_i]
             self.bn_t2 += [self.bn_t2_i]
-
+        
+        for i in range(16):
+            self.conv_s1[i] = self.conv_s1[i].cuda()
+            self.conv_t1[i] = self.conv_t1[i].cuda()
+            self.conv_s2[i] = self.conv_s2[i].cuda()
+            self.conv_t2[i] = self.conv_t2[i].cuda()
+            self.conv_ss1[i] = self.conv_ss1[i].cuda()
+            self.conv_st1[i] = self.conv_st1[i].cuda()
+            self.conv_ts1[i] = self.conv_ts1[i].cuda()
+            self.conv_tt1[i] = self.conv_tt1[i].cuda()
+            self.conv_ss2[i] = self.conv_ss2[i].cuda()
+            self.conv_st2[i] = self.conv_st2[i].cuda()
+            self.conv_ts2[i] = self.conv_ts2[i].cuda()
+            self.conv_tt2[i] = self.conv_tt2[i].cuda()
+            self.bn_s1[i] = self.bn_s1[i].cuda()
+            self.bn_t1[i] = self.bn_t1[i].cuda()
+            self.bn_s2[i] = self.bn_s2[i].cuda()
+            self.bn_t2[i] = self.bn_t2[i].cuda()
+            
     def forward(self, X):
         #CFR
         BX = []
